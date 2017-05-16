@@ -5981,6 +5981,10 @@ EOD;
 	}
 	public static function resolveNameID($model,&$attribute,&$htmlOptions)
 	{
+        if (!is_array($htmlOptions)) {
+            $htmlOptions = array();
+        }
+
 		if(!isset($htmlOptions['name']))
 			$htmlOptions['name']=self::resolveName($model,$attribute);
 		if(!isset($htmlOptions['id']))
